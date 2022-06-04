@@ -20,6 +20,7 @@ function App() {
       .then((res) => {
         if (res.ok) {
           console.log(res.status);
+
           return res.json();
         } else {
           if (res.status === 404) {
@@ -66,7 +67,9 @@ function App() {
           </button>
         </div>
         <div className="app__data">
-          <p className="temp">Current Temperature in: {weather?.main?.temp}</p>
+          <p className="temp">
+            Current Temperature: {(weather?.main?.temp * 1.8 + 32).toFixed(1)} F
+          </p>
         </div>
         <img className="app__image" src={photos} alt="" />
       </div>
